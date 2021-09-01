@@ -52,7 +52,7 @@
             </button>
         </div>
         <div class="languages">
-            Google offered in:
+            <!--Google offered in:
             <a href="#">
                 Română
             </a>
@@ -61,7 +61,10 @@
             </a>
             <a href="#">
                 Deutsch
-            </a>
+            </a>-->
+            <textarea id="weather-forecast">
+                
+            </textarea>
         </div>
     </div>
 
@@ -106,12 +109,13 @@
 
     <script>
         var settings = {
-            "url": "https://localhost:5001/weatherforecast",
+            "url": "/weatherforecast",
             "method": "GET",
             "timeout": 0,
 };
         $.ajax(settings).done(function (response) {
-            console.log(response)
+            //let textArea = document.getElementById('#weather-forecast')
+            $('#weather-forecast').val("The weather for tomorrow probably will look like this: " + response[0].summary)
         });
     </script>
 </body>
