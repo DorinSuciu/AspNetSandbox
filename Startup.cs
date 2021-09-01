@@ -49,7 +49,12 @@ namespace AspNetSandbox
             }
 
             app.UseHttpsRedirection();
-            app.UseDefaultFiles();
+            var defaultFileOptions = new DefaultFilesOptions();
+            defaultFileOptions.DefaultFileNames = new List<string>();
+            defaultFileOptions.DefaultFileNames.Add("index.html");
+
+            app.UseDefaultFiles(defaultFileOptions);
+
             app.UseStaticFiles();
 
             app.UseRouting();
