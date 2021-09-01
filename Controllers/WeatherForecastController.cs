@@ -11,6 +11,7 @@ namespace AspNetSandbox.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
+        static string apiKey = "0b0f282945e089f1487e3e8dbccadaf3";
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
