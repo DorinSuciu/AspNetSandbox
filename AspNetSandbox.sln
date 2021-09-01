@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetSandbox", "AspNetSandbox.csproj", "{7263C36C-FBBC-4197-BC4D-496A58438447}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetSandbox", "AspNetSandbox\AspNetSandbox.csproj", "{395C15D9-B853-47A4-837E-2F7834B97C7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7263C36C-FBBC-4197-BC4D-496A58438447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7263C36C-FBBC-4197-BC4D-496A58438447}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7263C36C-FBBC-4197-BC4D-496A58438447}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7263C36C-FBBC-4197-BC4D-496A58438447}.Release|Any CPU.Build.0 = Release|Any CPU
+		{395C15D9-B853-47A4-837E-2F7834B97C7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{395C15D9-B853-47A4-837E-2F7834B97C7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{395C15D9-B853-47A4-837E-2F7834B97C7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{395C15D9-B853-47A4-837E-2F7834B97C7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
