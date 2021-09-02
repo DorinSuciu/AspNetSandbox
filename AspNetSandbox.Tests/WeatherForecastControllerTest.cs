@@ -18,8 +18,9 @@ namespace AspNetSandbox.Tests
             var output = controller.ConvertResponseToWeatherForecast(content);
 
             // Assert
-            Assert.Equal("Rain", ((WeatherForecast[])output)[0].Summary);
-            Assert.Equal(20, ((WeatherForecast[])output)[0].TemperatureC);
+            var weatherForecastForTomorrow = ((WeatherForecast[])output)[0];
+            Assert.Equal("Rain", weatherForecastForTomorrow.Summary);
+            Assert.Equal(20, weatherForecastForTomorrow.TemperatureC);
         }
     }
 }
