@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="DataFromOpenWeatherAPI.json" />
+    <None Remove="DataFromOpenWeatherAPI1.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="DataFromOpenWeatherAPI1.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
@@ -21,6 +30,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AspNetSandbox\AspNetSandbox.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="DataFromOpenWeatherAPI.json" />
   </ItemGroup>
 
 </Project>

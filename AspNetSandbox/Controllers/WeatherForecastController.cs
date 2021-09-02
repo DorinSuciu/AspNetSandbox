@@ -13,16 +13,7 @@ namespace AspNetSandbox.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        static string apiKey = "0b0f282945e089f1487e3e8dbccadaf3";
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
         private const float KELVIN_CONST = 273.15f;
-        public WeatherForecastController()
-        {
-           
-        }
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
@@ -34,13 +25,10 @@ namespace AspNetSandbox.Controllers
             Console.WriteLine(response.Content);
 
             return ConvertResponseToWeatherForecast(response.Content);
-
-            //https://api.openweathermap.org/data/2.5/onecall?lat=35.652832&lon=139.839478&exclude=hourly,minutely&appid=0b0f282945e089f1487e3e8dbccadaf3
         }
        
         public IEnumerable<WeatherForecast> ConvertResponseToWeatherForecast(string content, int days = 5)
         {
-
             var json = JObject.Parse(content);
 
             return Enumerable.Range(1, days).Select(index =>
@@ -57,7 +45,6 @@ namespace AspNetSandbox.Controllers
                 };
             })
             .ToArray();
-
         }
 
         private static int getCelsiusTemperatureFromDailyWeather(JToken jsonDailyForecast)
