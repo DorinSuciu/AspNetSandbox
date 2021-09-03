@@ -51,7 +51,7 @@ namespace AspNetSandbox
         public Book Get(int id)
         {
           
-            return books.Single(SomeFunction);
+            return books.Single(book => book.Id == id);
            
         }
 
