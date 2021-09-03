@@ -26,7 +26,6 @@ namespace AspNetSandbox.Controllers
 
             return ConvertResponseToWeatherForecast(response.Content);
         }
-       
         public IEnumerable<WeatherForecast> ConvertResponseToWeatherForecast(string content, int days = 5)
         {
             var json = JObject.Parse(content);
@@ -36,17 +35,18 @@ namespace AspNetSandbox.Controllers
                 var jsonDailyForecast = json["daily"][index];
                 long unixDateTime = jsonDailyForecast.Value<long>("dt");
                 var weatherSummary = jsonDailyForecast["weather"][0].Value<string>("main");
-
+                
                 return new WeatherForecast
                 {
                     Date = DateTimeOffset.FromUnixTimeSeconds(unixDateTime).Date,
                     TemperatureC = getCelsiusTemperatureFromDailyWeather(jsonDailyForecast),
                     Summary = weatherSummary
+                    
                 };
             })
             .ToArray();
         }
-
+       
         private static int getCelsiusTemperatureFromDailyWeather(JToken jsonDailyForecast)
         {
             return (int)Math.Round(jsonDailyForecast["temp"].Value<float>("day") - KELVIN_CONST);
