@@ -26,6 +26,8 @@ namespace AspNetSandbox.Controllers
 
             return ConvertResponseToWeatherForecast(response.Content);
         }
+
+        [NonAction]
         public IEnumerable<WeatherForecast> ConvertResponseToWeatherForecast(string content, int days = 5)
         {
             var json = JObject.Parse(content);
