@@ -12,9 +12,9 @@ namespace AspNetSandbox
     [ApiController]
     public class BooksController : ControllerBase
     {
-        private List<Book> books;
+        private static List<Book> books;
 
-        public BooksController()
+        static BooksController()
         {
             books = new List<Book>();
             books.Add (new Book
@@ -40,11 +40,6 @@ namespace AspNetSandbox
         public IEnumerable<Book> Get()
         {
             return books;
-        }
-
-        private bool SomeFunction(Book book)
-        {
-            return book.Id == 1;
         }
 
         // GET api/<BooksController>/5
