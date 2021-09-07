@@ -28,19 +28,19 @@ namespace AspNetSandbox
             });
         }
 
-        public IEnumerable<Book> Get()
+        public IEnumerable<Book> GetBooks()
         {
             return books;
         }
 
-        public Book Get(int id)
+        public Book GetBooks(int id)
         {
 
             return books.Single(book => book.Id == id);
 
         }
 
-        public void Post(Book value)
+        public void AddBook(Book value)
         {
             int id = books.Count + 1;
             
@@ -56,18 +56,17 @@ namespace AspNetSandbox
             
             books.Add(value);
         }
-        public void Put(int id, Book value)
+        public void ReplaceBook(int id, Book value)
         {
-            //listOfStrings[listOfStrings.FindIndex(ind => ind.Equals("123"))] = "def";
             if (id == value.Id)
             {
                 books[id-1] = value;
             }
         }
 
-        public void Delete(int id)
+        public void DeleteBook(int id)
         {
-            books.Remove(Get(id));
+            books.Remove(GetBooks(id));
         }
     }
 }

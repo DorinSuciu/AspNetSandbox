@@ -11,20 +11,20 @@ namespace AspNetSandbox.Tests
     {
 
         [Fact]
-        public void BooksServicePostTest()
+        public void BooksServiceAddBookTest()
         {
             //Asume
             var booksService = new BooksService();
 
             // Act
-            booksService.Post(new Book
+            booksService.AddBook(new Book
             {
                 Title = "Test Book Nr1",
                 Author = "Tester 1 ",
                 Language = "test 1"
             });
-            booksService.Delete(2);
-            booksService.Post(new Book
+            booksService.DeleteBook(2);
+            booksService.AddBook(new Book
             {
                 Title = "Test Book Nr2",
                 Author = "Tester 2",
@@ -33,34 +33,30 @@ namespace AspNetSandbox.Tests
 
 
             // Assert
-            Assert.Equal("Test Book Nr1", booksService.Get(3).Title);
+            Assert.Equal("Test Book Nr1", booksService.GetBooks(3).Title);
+            Assert.Equal("Tester 1", booksService.GetBooks(3).Author);
+            Assert.Equal("test 1", booksService.GetBooks(3).Language);
         }
 
         [Fact]
-        public void BooksServicePutTest()
+        public void BooksServiceReplaceBookTest()
         {
             //Asume
             var booksService = new BooksService();
 
             // Act
-            booksService.Put(1, new Book
+            booksService.ReplaceBook(1, new Book
             {
                 Id = 1,
-                Title = "Test Book Nr1",
-                Author = "Tester 1 ",
-                Language = "test 1"
+                Title = "Test Book Nr3",
+                Author = "Tester 3",
+                Language = "test 3"
             }) ;
-            //booksService.Delete(2);
-            //booksService.Post(new Book
-            //{
-            //    Title = "Test Book Nr2",
-            //    Author = "Tester 2",
-            //    Language = "test 2"
-            //});
-
 
             // Assert
-            Assert.Equal("Test Book Nr1", booksService.Get(1).Title);
+            Assert.Equal("Test Book Nr3", booksService.GetBooks(1).Title);
+            Assert.Equal("Tester 3", booksService.GetBooks(1).Author);
+            Assert.Equal("test 3", booksService.GetBooks(1).Language);
         }
     }
 }
