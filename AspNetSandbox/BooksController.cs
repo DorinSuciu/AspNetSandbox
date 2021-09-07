@@ -12,34 +12,18 @@ namespace AspNetSandbox
     [ApiController]
     public class BooksController : ControllerBase
     {
-        private static List<Book> books;
+        private readonly IBooksService booksService;
 
-        static BooksController()
+        public BooksController(IBooksService booksService)
         {
-            books = new List<Book>();
-            books.Add (new Book
-            {
-                Id = 1,
-                Title = "Sapiens - o scurta istorie a omenirii",
-                Author = "Yuval Noah Harari",
-                Language = "Romanian"
-            });
-            
-
-            books.Add ( new Book
-            {
-                Id = 2,
-                Title = "Deep Work",
-                Author = "Cal Newport",
-                Language = "English"
-            });
+            this.booksService = booksService;
         }
 
         // GET: api/<BooksController>
         [HttpGet]
         public IEnumerable<Book> Get()
         {
-            return books;
+            return booksService.Get();
         }
 
         // GET api/<BooksController>/5
@@ -47,7 +31,7 @@ namespace AspNetSandbox
         public Book Get(int id)
         {
           
-            return books.Single(book => book.Id == id);
+            return booksService.Get(id);
            
         }
 
@@ -55,9 +39,7 @@ namespace AspNetSandbox
         [HttpPost]
         public void Post([FromBody]Book value)
         {
-            int id = books.Count + 1;
-            value.Id = id;
-            books.Add(value);
+            booksService.Post(value);
         }
 
         // PUT api/<BooksController>/5
@@ -71,7 +53,7 @@ namespace AspNetSandbox
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            books.Remove(Get(id));
+            booksService.Delete(id);
         }
     }
 }
