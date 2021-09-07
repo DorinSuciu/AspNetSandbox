@@ -43,12 +43,26 @@ namespace AspNetSandbox
         public void Post(Book value)
         {
             int id = books.Count + 1;
-            value.Id = id;
+            
+            int previousId = books.Count - 1;
+            
+            if (id == books[previousId].Id) {
+                value.Id = id + 1;
+            } 
+            else
+            {
+                value.Id = id;
+            }
+            
             books.Add(value);
         }
-        public void Put(int id, string value)
+        public void Put(int id, Book value)
         {
-
+            //listOfStrings[listOfStrings.FindIndex(ind => ind.Equals("123"))] = "def";
+            if (id == value.Id)
+            {
+                books[id-1] = value;
+            }
         }
 
         public void Delete(int id)

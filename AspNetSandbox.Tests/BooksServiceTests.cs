@@ -11,7 +11,7 @@ namespace AspNetSandbox.Tests
     {
 
         [Fact]
-        public void ConvertResponseToWeatherForecastTest()
+        public void BooksServiceTest()
         {
             //Asume
             var booksService = new BooksService();
