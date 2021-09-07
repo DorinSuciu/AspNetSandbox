@@ -15,7 +15,7 @@ namespace AspNetSandbox.Controllers
     {
 
         [HttpGet]
-        [Route("[controller]")]
+       
         public CityCoordinates Get()
             {
                 var client = new RestClient($"https://api.openweathermap.org/data/2.5/weather?q=Tokyo&appid=0b0f282945e089f1487e3e8dbccadaf3");
