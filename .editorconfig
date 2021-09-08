@@ -29,3 +29,6 @@ dotnet_diagnostic.SA1300.severity = none
 
 # SA1310: Field names should not contain underscore
 dotnet_diagnostic.SA1310.severity = none
+
+# CS1591: Missing XML comment for publicly visible type or member
+dotnet_diagnostic.CS1591.severity = none

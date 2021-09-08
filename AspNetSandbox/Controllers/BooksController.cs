@@ -26,6 +26,10 @@ namespace AspNetSandbox.Controllers
         }
 
         // GET api/<BooksController>/5
+
+        /// <summary>Gets the specified book by id.</summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>book object.</returns>
         [HttpGet("{id}")]
         public ActionResult Get(int id)
         {
@@ -40,6 +44,9 @@ namespace AspNetSandbox.Controllers
         }
 
         // POST api/<BooksController>
+
+        /// <summary>Adds the specified book in the Book list.</summary>
+        /// <param name="value">The value.</param>
         [HttpPost]
         public void Post([FromBody]Book value)
         {
@@ -47,6 +54,10 @@ namespace AspNetSandbox.Controllers
         }
 
         // PUT api/<BooksController>/5
+
+        /// <summary>Replace the specified book by id.</summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="value">The book value.</param>
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]Book value)
         {
@@ -54,6 +65,9 @@ namespace AspNetSandbox.Controllers
         }
 
         // DELETE api/<BooksController>/5
+
+        /// <summary>Deletes the specified bok by id.</summary>
+        /// <param name="id">The identifier.</param>
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

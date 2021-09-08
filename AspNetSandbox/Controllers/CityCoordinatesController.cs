@@ -13,6 +13,8 @@ namespace AspNetSandbox.Controllers
     [Route("[controller]")]
     public class CityCoordinatesController : ControllerBase
     {
+        /// <summary>Gets the coordinates for Tokyo.</summary>
+        /// <returns>Tokyo coordinates.</returns>
         [HttpGet]
         public CityCoordinates Get()
             {
@@ -25,6 +27,9 @@ namespace AspNetSandbox.Controllers
                 return ConvertCityCoordinates(response.Content);
             }
 
+        /// <summary>Converts the city coordinates.</summary>
+        /// <param name="content">The content.</param>
+        /// <returns>CityCoordinates object.</returns>
         [NonAction]
         public CityCoordinates ConvertCityCoordinates(string content)
             {

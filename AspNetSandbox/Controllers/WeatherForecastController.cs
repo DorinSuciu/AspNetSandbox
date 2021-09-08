@@ -36,6 +36,10 @@ namespace AspNetSandbox.Controllers
             return ConvertResponseToWeatherForecast(response.Content);
         }
 
+        /// <summary>Converts the response to weather forecast.</summary>
+        /// <param name="content">The content.</param>
+        /// <param name="days">The days.</param>
+        /// <returns>WeatherForecast object with date, temperature and summary.</returns>
         [NonAction]
         public IEnumerable<WeatherForecast> ConvertResponseToWeatherForecast(string content, int days = 5)
         {
@@ -56,6 +60,9 @@ namespace AspNetSandbox.Controllers
             .ToArray();
         }
 
+        /// <summary>Transform kelvin temperature in celsius.</summary>
+        /// <param name="jsonDailyForecast">The json daily forecast.</param>
+        /// <returns>celsius temperature.</returns>
         private static int getCelsiusTemperatureFromDailyWeather(JToken jsonDailyForecast)
         {
             return (int)Math.Round(jsonDailyForecast["temp"].Value<float>("day") - KELVIN_CONST);

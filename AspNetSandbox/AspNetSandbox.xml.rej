@@ -1,0 +1,23 @@
+diff a/AspNetSandbox/AspNetSandbox.xml b/AspNetSandbox/AspNetSandbox.xml	(rejected hunks)
+@@ -0,0 +1,21 @@
++<?xml version="1.0"?>
++<doc>
++    <assembly>
++        <name>AspNetSandbox</name>
++    </assembly>
++    <members>
++        <member name="T:AspNetSandbox.Controllers.WeatherForecastController">
++            <summary>
++            Controller that allows us to get weather forecast.
++            </summary>
++        </member>
++        <member name="M:AspNetSandbox.Controllers.WeatherForecastController.Get">
++            <summary>
++            Getting weather forecast for 5 days.
++            </summary>
++            <returns>
++            Enumerable of weather forecast objects.
++            </returns>
++        </member>
++    </members>
++</doc>
