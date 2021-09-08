@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetSandbox", "AspNetSand
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetSandbox.Tests", "AspNetSandbox.Tests\AspNetSandbox.Tests.csproj", "{D0B13F6B-F556-4DDC-9D5B-DA55A879372B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockerSandbox", "DockerSandbox\DockerSandbox.csproj", "{1BBE2D8F-1A98-4567-95D5-13624813DA6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DockerSandbox", "DockerSandbox\DockerSandbox.csproj", "{1BBE2D8F-1A98-4567-95D5-13624813DA6D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{AFF1AC3F-B7C3-428E-8E59-D623BFD2109D}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
