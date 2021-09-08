@@ -20,7 +20,7 @@ namespace AspNetSandbox.Tests
             booksService.AddBook(new Book
             {
                 Title = "Test Book Nr1",
-                Author = "Tester 1 ",
+                Author = "Tester 1",
                 Language = "test 1"
             });
             booksService.DeleteBook(2);

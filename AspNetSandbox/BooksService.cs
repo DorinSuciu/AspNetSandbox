@@ -35,24 +35,13 @@ namespace AspNetSandbox
 
         public Book GetBooks(int id)
         {
-
-            return books.Single(book => book.Id == id);
-
+            return books.Single(_ => _.Id == id);
         }
 
         public void AddBook(Book value)
         {
-            int id = books.Count + 1;
-            
-            int previousId = books.Count - 1;
-            
-            if (id == books[previousId].Id) {
-                value.Id = id + 1;
-            } 
-            else
-            {
-                value.Id = id;
-            }
+            int previousId = books[books.Count - 1].Id;
+            value.Id = previousId + 1;
             
             books.Add(value);
         }
