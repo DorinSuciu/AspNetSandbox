@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace AspNetSandbox
 {
     [Route("api/[controller]")]
@@ -34,9 +33,9 @@ namespace AspNetSandbox
             {
                 return Ok(booksService.GetBooks(id));
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                return NotFound();
+                return NotFound(e);
             }
         }
 

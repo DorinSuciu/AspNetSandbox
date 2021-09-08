@@ -7,8 +7,8 @@ namespace AspNetSandbox
 {
     public class BooksService : IBooksService
     {
-        private List<Book> books;
         private static int id;
+        private List<Book> books;
 
         public BooksService()
         {
@@ -18,7 +18,7 @@ namespace AspNetSandbox
                 Id = 1,
                 Title = "Sapiens - o scurta istorie a omenirii",
                 Author = "Yuval Noah Harari",
-                Language = "Romanian"
+                Language = "Romanian",
             });
 
             books.Add(new Book
@@ -26,7 +26,7 @@ namespace AspNetSandbox
                 Id = 2,
                 Title = "Deep Work",
                 Author = "Cal Newport",
-                Language = "English"
+                Language = "English",
             });
         }
 
