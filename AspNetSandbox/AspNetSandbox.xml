@@ -4,6 +4,47 @@
         <name>AspNetSandbox</name>
     </assembly>
     <members>
+        <member name="T:AspNetSandbox.Controllers.BooksController">
+            <summary>
+            Controller that allows us to get books.
+            </summary>
+        </member>
+        <member name="M:AspNetSandbox.Controllers.BooksController.Get">
+            <summary>Gets all the books.</summary>
+            <returns>list of book objects.</returns>
+        </member>
+        <member name="M:AspNetSandbox.Controllers.BooksController.Get(System.Int32)">
+            <summary>Gets the specified book by id.</summary>
+            <param name="id">The identifier.</param>
+            <returns>book object.</returns>
+        </member>
+        <member name="M:AspNetSandbox.Controllers.BooksController.Post(AspNetSandbox.Book)">
+            <summary>Adds the specified book in the Book list.</summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AspNetSandbox.Controllers.BooksController.Put(System.Int32,AspNetSandbox.Book)">
+            <summary>Replace the specified book by id.</summary>
+            <param name="id">The identifier.</param>
+            <param name="value">The book value.</param>
+        </member>
+        <member name="M:AspNetSandbox.Controllers.BooksController.Delete(System.Int32)">
+            <summary>Deletes the specified bok by id.</summary>
+            <param name="id">The identifier.</param>
+        </member>
+        <member name="T:AspNetSandbox.Controllers.CityCoordinatesController">
+            <summary>
+            Controller that allows us to get city coordinates.
+            </summary>
+        </member>
+        <member name="M:AspNetSandbox.Controllers.CityCoordinatesController.Get(System.String)">
+            <summary>Gets the coordinates for Tokyo.</summary>
+            <returns>Tokyo coordinates.</returns>
+        </member>
+        <member name="M:AspNetSandbox.Controllers.CityCoordinatesController.ConvertCityCoordinates(System.String)">
+            <summary>Converts the city coordinates.</summary>
+            <param name="content">The content.</param>
+            <returns>CityCoordinates object.</returns>
+        </member>
         <member name="T:AspNetSandbox.Controllers.WeatherForecastController">
             <summary>
             Controller that allows us to get weather forecast.
@@ -16,6 +57,17 @@
             <returns>
             Enumerable of weather forecast objects.
             </returns>
+        </member>
+        <member name="M:AspNetSandbox.Controllers.WeatherForecastController.ConvertResponseToWeatherForecast(System.String,System.Int32)">
+            <summary>Converts the response to weather forecast.</summary>
+            <param name="content">The content.</param>
+            <param name="days">The days.</param>
+            <returns>WeatherForecast object with date, temperature and summary.</returns>
+        </member>
+        <member name="M:AspNetSandbox.Controllers.WeatherForecastController.getCelsiusTemperatureFromDailyWeather(Newtonsoft.Json.Linq.JToken)">
+            <summary>Transform kelvin temperature in celsius.</summary>
+            <param name="jsonDailyForecast">The json daily forecast.</param>
+            <returns>celsius temperature.</returns>
         </member>
     </members>
 </doc>

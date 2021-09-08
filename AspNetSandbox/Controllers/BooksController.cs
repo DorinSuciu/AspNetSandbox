@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 namespace AspNetSandbox.Controllers
 {
+    /// <summary>
+    /// Controller that allows us to get books.
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class BooksController : ControllerBase
@@ -19,6 +22,9 @@ namespace AspNetSandbox.Controllers
         }
 
         // GET: api/<BooksController>
+
+        /// <summary>Gets all the books.</summary>
+        /// <returns>list of book objects.</returns>
         [HttpGet]
         public IEnumerable<Book> Get()
         {

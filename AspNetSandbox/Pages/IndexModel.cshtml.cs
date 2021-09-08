@@ -19,7 +19,6 @@ namespace AspNetSandbox.Pages
 
         public void OnGet()
         {
-
         }
     }
 }
