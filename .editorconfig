@@ -20,3 +20,6 @@ dotnet_diagnostic.SA1005.severity = none
 
 # SA1413: Use trailing comma in multi-line initializers
 dotnet_diagnostic.SA1413.severity = none
+
+# SA1208: System using directives should be placed before other using directives
+dotnet_diagnostic.SA1208.severity = none

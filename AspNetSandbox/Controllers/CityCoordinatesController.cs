@@ -13,9 +13,7 @@ namespace AspNetSandbox.Controllers
     [Route("[controller]")]
     public class CityCoordinatesController : ControllerBase
     {
-
         [HttpGet]
-       
         public CityCoordinates Get()
             {
                 var client = new RestClient($"https://api.openweathermap.org/data/2.5/weather?q=Tokyo&appid=0b0f282945e089f1487e3e8dbccadaf3");
@@ -23,7 +21,7 @@ namespace AspNetSandbox.Controllers
                 var request = new RestRequest(Method.GET);
                 IRestResponse response = client.Execute(request);
                 Console.WriteLine(response.Content);
-            
+
                 return ConvertCityCoordinates(response.Content);
             }
 
@@ -34,14 +32,11 @@ namespace AspNetSandbox.Controllers
 
                 var cityLongitude = json["coord"].Value<double>("lon");
                 var cityLatitude = json["coord"].Value<double>("lat");
-            
-                    return new CityCoordinates
+                return new CityCoordinates
                     {
                         Longitude = Math.Round(cityLongitude, 4),
                         Latitude = Math.Round(cityLatitude, 4)
                     };
-               
             }
         }
-    
 }

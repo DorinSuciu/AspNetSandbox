@@ -16,12 +16,11 @@ namespace AspNetSandbox.Tests
 
             // Act
             var output = controller.ConvertCityCoordinates(content);
-            
+
             // Assert
-            var cityCoordinates = ((CityCoordinates)output);
+            var cityCoordinates = (CityCoordinates)output;
             Assert.Equal(35.6895, cityCoordinates.Latitude);
             Assert.Equal(139.6917, cityCoordinates.Longitude);
-            
         }
 
         private string LoadJsonFromResource()

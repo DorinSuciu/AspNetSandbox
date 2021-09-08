@@ -49,14 +49,14 @@ namespace AspNetSandbox
         {
             int previousId = books[books.Count - 1].Id;
             value.Id = previousId + 1;
-            
             books.Add(value);
         }
+
         public void ReplaceBook(int id, Book value)
         {
             if (id == value.Id)
             {
-                books[id-1] = value;
+                books[id - 1] = value;
             }
         }
 
@@ -66,4 +66,3 @@ namespace AspNetSandbox
         }
     }
 }
-
