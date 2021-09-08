@@ -8,6 +8,8 @@ namespace AspNetSandbox
     public class BooksService : IBooksService
     {
         private List<Book> books;
+        private static int id;
+
         public BooksService()
         {
             books = new List<Book>();
@@ -26,6 +28,11 @@ namespace AspNetSandbox
                 Author = "Cal Newport",
                 Language = "English"
             });
+        }
+
+        public static void ResetId()
+        {
+            id = 0;
         }
 
         public IEnumerable<Book> GetBooks()

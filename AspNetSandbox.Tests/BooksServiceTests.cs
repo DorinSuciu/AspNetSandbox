@@ -9,12 +9,14 @@ namespace AspNetSandbox.Tests
 {
     public class BooksServiceTests
     {
+        private BooksService booksService;
 
         [Fact]
         public void BooksServiceAddBookTest()
         {
             //Asume
-            var booksService = new BooksService();
+            BooksService.ResetId();
+            booksService = new BooksService();
 
             // Act
             booksService.AddBook(new Book
@@ -42,7 +44,8 @@ namespace AspNetSandbox.Tests
         public void BooksServiceReplaceBookTest()
         {
             //Asume
-            var booksService = new BooksService();
+            BooksService.ResetId();
+            booksService = new BooksService();
 
             // Act
             booksService.ReplaceBook(1, new Book
