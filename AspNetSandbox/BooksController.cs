@@ -28,11 +28,16 @@ namespace AspNetSandbox
 
         // GET api/<BooksController>/5
         [HttpGet("{id}")]
-        public Book Get(int id)
+        public ActionResult Get(int id)
         {
-          
-            return booksService.GetBooks(id);
-           
+            try
+            {
+                return Ok(booksService.GetBooks(id));
+            }
+            catch(Exception e)
+            {
+                return NotFound();
+            }
         }
 
         // POST api/<BooksController>
