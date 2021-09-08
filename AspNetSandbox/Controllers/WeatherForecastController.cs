@@ -9,12 +9,21 @@ using RestSharp;
 
 namespace AspNetSandbox.Controllers
 {
+    /// <summary>
+    /// Controller that allows us to get weather forecast.
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private const float KELVIN_CONST = 273.15f;
 
+        /// <summary>
+        /// Getting weather forecast for 5 days.
+        /// </summary>
+        /// <returns>
+        /// Enumerable of weather forecast objects.
+        /// </returns>
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
@@ -37,18 +46,16 @@ namespace AspNetSandbox.Controllers
                 var jsonDailyForecast = json["daily"][index];
                 long unixDateTime = jsonDailyForecast.Value<long>("dt");
                 var weatherSummary = jsonDailyForecast["weather"][0].Value<string>("main");
-                
                 return new WeatherForecast
                 {
                     Date = DateTimeOffset.FromUnixTimeSeconds(unixDateTime).Date,
                     TemperatureC = getCelsiusTemperatureFromDailyWeather(jsonDailyForecast),
                     Summary = weatherSummary
-                    
                 };
             })
             .ToArray();
         }
-       
+
         private static int getCelsiusTemperatureFromDailyWeather(JToken jsonDailyForecast)
         {
             return (int)Math.Round(jsonDailyForecast["temp"].Value<float>("day") - KELVIN_CONST);
