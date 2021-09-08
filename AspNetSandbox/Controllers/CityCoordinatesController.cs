@@ -9,6 +9,9 @@ using RestSharp;
 
 namespace AspNetSandbox.Controllers
 {
+    /// <summary>
+    /// Controller that allows us to get city coordinates.
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class CityCoordinatesController : ControllerBase
@@ -16,9 +19,10 @@ namespace AspNetSandbox.Controllers
         /// <summary>Gets the coordinates for Tokyo.</summary>
         /// <returns>Tokyo coordinates.</returns>
         [HttpGet]
-        public CityCoordinates Get()
+        [Route("/citycoordinates/{city}")]
+        public CityCoordinates Get(string city)
             {
-                var client = new RestClient($"https://api.openweathermap.org/data/2.5/weather?q=Tokyo&appid=0b0f282945e089f1487e3e8dbccadaf3");
+                var client = new RestClient($"https://api.openweathermap.org/data/2.5/weather?q={city}&appid=0b0f282945e089f1487e3e8dbccadaf3");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.GET);
                 IRestResponse response = client.Execute(request);
