@@ -31,7 +31,6 @@ namespace AspNetSandbox.Tests
             string content = LoadJsonFromResource();
             var controller = new WeatherForecastController();
 
-
             // Act
             var output = controller.ConvertResponseToWeatherForecast(content);
 
@@ -40,9 +39,8 @@ namespace AspNetSandbox.Tests
             Assert.Equal("Rain", weatherForecastAfterTomorrow.Summary);
             Assert.Equal(22, weatherForecastAfterTomorrow.TemperatureC);
             Assert.Equal(new DateTime(2021, 9, 4), weatherForecastAfterTomorrow.Date);
-
         }
-        
+
         private string LoadJsonFromResource()
         {
             var assembly = this.GetType().Assembly;
