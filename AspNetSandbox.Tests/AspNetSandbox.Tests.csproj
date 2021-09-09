@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-	<GenerateDocumentationFile>true</GenerateDocumentationFile>
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
 
@@ -43,3 +42,4 @@
   </ItemGroup>
 
 </Project>
+
