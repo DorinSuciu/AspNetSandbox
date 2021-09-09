@@ -20,12 +20,12 @@
         </member>
         <member name="M:AspNetSandbox.Controllers.BooksController.Post(AspNetSandbox.Models.Book)">
             <summary>Adds the specified book in the Book list.</summary>
-            <param name="value">The value.</param>
+            <param name="book">The value.</param>
         </member>
         <member name="M:AspNetSandbox.Controllers.BooksController.Put(System.Int32,AspNetSandbox.Models.Book)">
             <summary>Replace the specified book by id.</summary>
             <param name="id">The identifier.</param>
-            <param name="value">The book value.</param>
+            <param name="book">The book value.</param>
         </member>
         <member name="M:AspNetSandbox.Controllers.BooksController.Delete(System.Int32)">
             <summary>Deletes the specified bok by id.</summary>
@@ -68,6 +68,12 @@
             <summary>Transform kelvin temperature in celsius.</summary>
             <param name="jsonDailyForecast">The json daily forecast.</param>
             <returns>celsius temperature.</returns>
+        </member>
+        <member name="T:AspNetSandbox.Data.Migrations.AddBooks">
+            <summary>
+            Migration for AddBooks.
+            </summary>
+            <seealso cref="T:Microsoft.EntityFrameworkCore.Migrations.Migration" />
         </member>
     </members>
 </doc>
