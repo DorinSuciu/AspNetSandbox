@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetSandbox.Tests", "AspNetSandbox.Tests\AspNetSandbox.Tests.csproj", "{E3899EDE-6545-4ED9-8CAB-43BA9B0F5216}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBSandbox", "DBSandbox\DBSandbox.csproj", "{8900987D-E814-4C6F-A227-61EE14C2262A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{E3899EDE-6545-4ED9-8CAB-43BA9B0F5216}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3899EDE-6545-4ED9-8CAB-43BA9B0F5216}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3899EDE-6545-4ED9-8CAB-43BA9B0F5216}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8900987D-E814-4C6F-A227-61EE14C2262A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8900987D-E814-4C6F-A227-61EE14C2262A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8900987D-E814-4C6F-A227-61EE14C2262A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8900987D-E814-4C6F-A227-61EE14C2262A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
