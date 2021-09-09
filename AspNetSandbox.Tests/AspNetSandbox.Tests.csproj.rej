@@ -1,0 +1,6 @@
+diff a/AspNetSandbox.Tests/AspNetSandbox.Tests.csproj b/AspNetSandbox.Tests/AspNetSandbox.Tests.csproj	(rejected hunks)
+@@ -42,3 +42,4 @@
+   </ItemGroup>
+ 
+ </Project>
++

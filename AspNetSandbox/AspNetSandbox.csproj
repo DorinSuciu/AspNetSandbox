@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-	<GenerateDocumentationFile>true</GenerateDocumentationFile>
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <StartupObject></StartupObject>
@@ -7,6 +6,9 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>C:\Projects\Backend\AspNetSandbox\AspNetSandbox\AspNetSandbox.xml</DocumentationFile>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <NoWarn>1701;1702</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
