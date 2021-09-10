@@ -69,11 +69,5 @@
             <param name="jsonDailyForecast">The json daily forecast.</param>
             <returns>celsius temperature.</returns>
         </member>
-        <member name="T:AspNetSandbox.Data.Migrations.AddBooks">
-            <summary>
-            Migration for AddBooks.
-            </summary>
-            <seealso cref="T:Microsoft.EntityFrameworkCore.Migrations.Migration" />
-        </member>
     </members>
 </doc>
