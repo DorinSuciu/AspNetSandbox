@@ -34,6 +34,7 @@ namespace AspNetSandbox.Pages.Books
             {
                 return NotFound();
             }
+
             return Page();
         }
     }
