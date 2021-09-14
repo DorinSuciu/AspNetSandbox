@@ -11,16 +11,16 @@ namespace AspNetSandbox.Tests
     /// <summary>
     /// This is test suite for BooksController.
     /// </summary>
-    public class BooksServiceTests
+    public class BooksInMemoryRepositoryTest
     {
-        private BooksService booksService;
+        private BooksInMemoryRepository booksService;
 
         [Fact]
         public void BooksServiceAddBookTest()
         {
             //Asume
-            BooksService.ResetId();
-            booksService = new BooksService();
+            BooksInMemoryRepository.ResetId();
+            booksService = new BooksInMemoryRepository();
 
             // Act
             booksService.AddBook(new Book
@@ -47,8 +47,8 @@ namespace AspNetSandbox.Tests
         public void BooksServiceReplaceBookTest()
         {
             //Asume
-            BooksService.ResetId();
-            booksService = new BooksService();
+            BooksInMemoryRepository.ResetId();
+            booksService = new BooksInMemoryRepository();
 
             // Act
             booksService.ReplaceBook(1, new Book

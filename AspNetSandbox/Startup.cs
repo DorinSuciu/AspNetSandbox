@@ -48,7 +48,7 @@ namespace AspNetSandbox
                 c.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
             });
 
-            services.AddSingleton<IBooksService, BooksService>();
+            services.AddSingleton<IBookRepository, BooksInMemoryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
