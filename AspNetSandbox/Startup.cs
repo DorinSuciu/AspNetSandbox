@@ -49,7 +49,7 @@ namespace AspNetSandbox
                 c.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
             });
 
-            services.AddSingleton<IBookRepository, BooksInMemoryRepository>();
+            services.AddScoped<IBookRepository, DbBooksRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
