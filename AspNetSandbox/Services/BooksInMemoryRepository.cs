@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AspNetSandbox
+namespace AspNetSandbox.Services
 {
     public class BooksInMemoryRepository : IBookRepository
     {
