@@ -25,23 +25,19 @@ namespace AspNetSandbox.Controllers
             this.repository = repository;
         }
 
-        // GET: api/<BooksController>
-
         /// <summary>Gets all the books.</summary>
         /// <returns>list of book objects.</returns>
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
             return Ok(repository.GetBooks());
         }
-
-        // GET api/<BooksController>/5
 
         /// <summary>Gets the specified book by id.</summary>
         /// <param name="id">The identifier.</param>
         /// <returns>book object.</returns>
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public IActionResult Get(int id)
         {
             try
             {
@@ -54,12 +50,10 @@ namespace AspNetSandbox.Controllers
             }
         }
 
-        // POST api/<BooksController>
-
         /// <summary>Adds the specified book in the Book list.</summary>
         /// <param name="book">The value.</param>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]Book book)
+        public IActionResult Post([FromBody]Book book)
         {
             if (ModelState.IsValid)
             {
@@ -72,19 +66,15 @@ namespace AspNetSandbox.Controllers
             }
         }
 
-        // PUT api/<BooksController>/5
-
         /// <summary>Replace the specified book by id.</summary>
         /// <param name="id">The identifier.</param>
         /// <param name="book">The book value.</param>
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody]Book book)
+        public IActionResult Put(int id, [FromBody]Book book)
         {
                repository.ReplaceBook(id, book);
                return Ok();
         }
-
-        // DELETE api/<BooksController>/5
 
         /// <summary>Deletes the specified bok by id.</summary>
         /// <param name="id">The identifier.</param>
