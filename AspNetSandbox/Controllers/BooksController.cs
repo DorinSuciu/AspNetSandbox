@@ -41,7 +41,7 @@ namespace AspNetSandbox.Controllers
         {
             try
             {
-                var book = repository.GetBooks(id);
+                var book = repository.GetBookById(id);
                 return Ok(book);
             }
             catch (Exception e)

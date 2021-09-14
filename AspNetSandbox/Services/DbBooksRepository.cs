@@ -34,7 +34,7 @@ namespace AspNetSandbox.Services
             return context.Book.ToList();
         }
 
-        public Book GetBooks(int id)
+        public Book GetBookById(int id)
         {
             var book = context.Book
                .FirstOrDefault(m => m.Id == id);
