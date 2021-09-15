@@ -18,9 +18,9 @@
             <param name="id">The identifier.</param>
             <returns>book object.</returns>
         </member>
-        <member name="M:AspNetSandbox.Controllers.BooksController.Post(AspNetSandbox.Models.Book)">
+        <member name="M:AspNetSandbox.Controllers.BooksController.Post(AspNetSandbox.DTOs.CreateBookDto)">
             <summary>Adds the specified book in the Book list.</summary>
-            <param name="book">The value.</param>
+            <param name="bookDto">The value.</param>
         </member>
         <member name="M:AspNetSandbox.Controllers.BooksController.Put(System.Int32,AspNetSandbox.Models.Book)">
             <summary>Replace the specified book by id.</summary>

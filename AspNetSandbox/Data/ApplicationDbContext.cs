@@ -15,5 +15,6 @@ namespace AspNetSandbox.Data
         }
 
         public DbSet<AspNetSandbox.Models.Book> Book { get; set; }
+
     }
 }

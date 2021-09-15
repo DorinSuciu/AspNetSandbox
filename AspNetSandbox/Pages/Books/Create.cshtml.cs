@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using AspNetSandbox.Data;
 using AspNetSandbox.Models;
 using Microsoft.AspNetCore.SignalR;
+using AspNetSandbox.DTOs;
 
 namespace AspNetSandbox.Pages.Books
 {
@@ -39,6 +40,7 @@ namespace AspNetSandbox.Pages.Books
             }
 
             _context.Book.Add(Book);
+            await hubContext.Clients.All.SendAsync("CreatedBook", Book);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

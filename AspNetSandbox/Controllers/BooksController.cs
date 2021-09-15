@@ -9,6 +9,7 @@ using AspNetSandbox.Data;
 using AspNetSandbox.Models;
 using Microsoft.AspNetCore.SignalR;
 using AspNetSandbox.DTOs;
+using AutoMapper;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 namespace AspNetSandbox.Controllers
@@ -22,11 +23,13 @@ namespace AspNetSandbox.Controllers
     {
         private readonly IBookRepository repository;
         private readonly IHubContext<MessageHub> hubContext;
+        private readonly IMapper mapper;
 
-        public BooksController(IBookRepository repository, IHubContext<MessageHub> hubContext)
+        public BooksController(IBookRepository repository, IHubContext<MessageHub> hubContext, IMapper mapper)
         {
             this.repository = repository;
             this.hubContext = hubContext;
+            this.mapper = mapper;
         }
 
         /// <summary>Gets all the books.</summary>
@@ -55,14 +58,15 @@ namespace AspNetSandbox.Controllers
         }
 
         /// <summary>Adds the specified book in the Book list.</summary>
-        /// <param name="book">The value.</param>
+        /// <param name="bookDto">The value.</param>
         [HttpPost]
-        public IActionResult Post([FromBody]CreateBookDto book)
+        public IActionResult Post([FromBody]CreateBookDto bookDto)
         {
             if (ModelState.IsValid)
             {
+                Book book = mapper.Map<Book>(bookDto);
                 repository.AddBook(book);
-                hubContext.Clients.All.SendAsync("CreatedBook", book);
+                hubContext.Clients.All.SendAsync("CreatedBook", bookDto);
                 return Ok();
             }
             else
