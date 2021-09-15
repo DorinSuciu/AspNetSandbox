@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AspNetSandbox.Data;
 using AspNetSandbox.Models;
+using Microsoft.AspNetCore.SignalR;
+using AspNetSandbox.DTOs;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 namespace AspNetSandbox.Controllers
@@ -19,10 +21,12 @@ namespace AspNetSandbox.Controllers
     public class BooksController : ControllerBase
     {
         private readonly IBookRepository repository;
+        private readonly IHubContext<MessageHub> hubContext;
 
-        public BooksController(IBookRepository repository)
+        public BooksController(IBookRepository repository, IHubContext<MessageHub> hubContext)
         {
             this.repository = repository;
+            this.hubContext = hubContext;
         }
 
         /// <summary>Gets all the books.</summary>
@@ -53,11 +57,12 @@ namespace AspNetSandbox.Controllers
         /// <summary>Adds the specified book in the Book list.</summary>
         /// <param name="book">The value.</param>
         [HttpPost]
-        public IActionResult Post([FromBody]Book book)
+        public IActionResult Post([FromBody]CreateBookDto book)
         {
             if (ModelState.IsValid)
             {
                 repository.AddBook(book);
+                hubContext.Clients.All.SendAsync("CreatedBook", book);
                 return Ok();
             }
             else

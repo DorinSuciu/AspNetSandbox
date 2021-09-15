@@ -1,4 +1,5 @@
-﻿using AspNetSandbox.Models;
+﻿using AspNetSandbox.DTOs;
+using AspNetSandbox.Models;
 using System.Collections.Generic;
 
 namespace AspNetSandbox
@@ -14,5 +15,6 @@ namespace AspNetSandbox
         void AddBook(Book value);
 
         void ReplaceBook(int id, Book value);
+        void AddBook(CreateBookDto book);
     }
 }

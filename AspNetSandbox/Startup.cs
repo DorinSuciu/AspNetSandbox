@@ -30,11 +30,13 @@ namespace AspNetSandbox
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(
+                AppDomain.CurrentDomain.GetAssemblies());
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
-
+            services.AddSignalR();
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
@@ -48,7 +50,6 @@ namespace AspNetSandbox
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
             });
-            services.AddSignalR();
             services.AddScoped<IBookRepository, DbBooksRepository>();
         }
 
