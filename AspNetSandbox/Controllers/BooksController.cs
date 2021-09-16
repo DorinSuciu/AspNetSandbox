@@ -79,10 +79,12 @@ namespace AspNetSandbox.Controllers
         /// <param name="id">The identifier.</param>
         /// <param name="book">The book value.</param>
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody]Book book)
+        public IActionResult Put(int id, [FromBody] CreateBookDto bookDto)
         {
-               repository.ReplaceBook(id, book);
-               return Ok();
+            Book book = mapper.Map<Book>(bookDto);
+            repository.ReplaceBook(id, book);
+            hubContext.Clients.All.SendAsync("UpdatedBook", book);
+            return Ok();
         }
 
         /// <summary>Deletes the specified bok by id.</summary>
@@ -90,8 +92,9 @@ namespace AspNetSandbox.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            repository.DeleteBook(id);
-            return Ok();
+           repository.DeleteBook(id);
+           hubContext.Clients.All.SendAsync("DeletedBook", id);
+           return Ok();
         }
     }
 }

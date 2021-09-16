@@ -22,7 +22,7 @@
             <summary>Adds the specified book in the Book list.</summary>
             <param name="bookDto">The value.</param>
         </member>
-        <member name="M:AspNetSandbox.Controllers.BooksController.Put(System.Int32,AspNetSandbox.Models.Book)">
+        <member name="M:AspNetSandbox.Controllers.BooksController.Put(System.Int32,AspNetSandbox.DTOs.CreateBookDto)">
             <summary>Replace the specified book by id.</summary>
             <param name="id">The identifier.</param>
             <param name="book">The book value.</param>
