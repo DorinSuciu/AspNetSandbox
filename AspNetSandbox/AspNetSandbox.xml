@@ -25,7 +25,7 @@
         <member name="M:AspNetSandbox.Controllers.BooksController.Put(System.Int32,AspNetSandbox.DTOs.CreateBookDto)">
             <summary>Replace the specified book by id.</summary>
             <param name="id">The identifier.</param>
-            <param name="book">The book value.</param>
+            <param name="bookDto">The book value.</param>
         </member>
         <member name="M:AspNetSandbox.Controllers.BooksController.Delete(System.Int32)">
             <summary>Deletes the specified bok by id.</summary>
