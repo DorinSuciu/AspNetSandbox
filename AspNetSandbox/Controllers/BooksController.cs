@@ -37,19 +37,22 @@ namespace AspNetSandbox.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(repository.GetBooks());
+            IEnumerable<Book> book = repository.GetBooks();
+            IEnumerable<ReadBookDto> bookDto = mapper.Map<IEnumerable<ReadBookDto>>(book);
+            return Ok(bookDto);
         }
 
         /// <summary>Gets the specified book by id.</summary>
         /// <param name="id">The identifier.</param>
-        /// <returns>book object.</returns>
+        /// <returns>ReadBookDto object.</returns>
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             try
             {
-                var book = repository.GetBookById(id);
-                return Ok(book);
+                Book book = repository.GetBookById(id);
+                ReadBookDto bookDto = mapper.Map<ReadBookDto>(book);
+                return Ok(bookDto);
             }
             catch (Exception e)
             {
@@ -77,7 +80,7 @@ namespace AspNetSandbox.Controllers
 
         /// <summary>Replace the specified book by id.</summary>
         /// <param name="id">The identifier.</param>
-        /// <param name="book">The book value.</param>
+        /// <param name="bookDto">The book value.</param>
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] CreateBookDto bookDto)
         {
