@@ -30,7 +30,7 @@ docker rm asp--net--sandbox
 
 Login to heroku
 ```
-heroku login
+heroku loginheroku login
 heroku container:login
 ```
 

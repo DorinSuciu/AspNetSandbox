@@ -52,11 +52,11 @@ namespace AspNetSandbox.Pages.Books
                 return Page();
             }
 
-            _context.Attach(Book).State = EntityState.Modified;
-
             try
             {
+                _context.Book.Update(Book);
                 await _context.SaveChangesAsync();
+                await hubContext.Clients.All.SendAsync("UpdatedBook", Book);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -66,13 +66,10 @@ namespace AspNetSandbox.Pages.Books
                 }
                 else
                 {
-                    _context.Book.Update(Book);
-                    await hubContext.Clients.All.SendAsync("EditedBook", Book);
-                    await _context.SaveChangesAsync();
+                    throw;
                 }
             }
 
-           // _context.Book.Update(Book);
             return RedirectToPage("./Index");
         }
 

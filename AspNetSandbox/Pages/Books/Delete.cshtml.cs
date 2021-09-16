@@ -54,9 +54,10 @@ namespace AspNetSandbox.Pages.Books
             if (Book != null)
             {
                 _context.Book.Remove(Book);
-                await hubContext.Clients.All.SendAsync("DeletedBook", Book);
                 await _context.SaveChangesAsync();
+                await hubContext.Clients.All.SendAsync("DeletedBook", Book);
             }
+
             return RedirectToPage("./Index");
         }
     }

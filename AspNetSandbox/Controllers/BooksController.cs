@@ -66,7 +66,7 @@ namespace AspNetSandbox.Controllers
             {
                 Book book = mapper.Map<Book>(bookDto);
                 repository.AddBook(book);
-                hubContext.Clients.All.SendAsync("CreatedBook", bookDto);
+                hubContext.Clients.All.SendAsync("CreatedBook", book);
                 return Ok();
             }
             else
