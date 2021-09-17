@@ -65,3 +65,6 @@ dotnet_diagnostic.SA1615.severity = none
 
 # SA1002: Semicolons should be spaced correctly
 dotnet_diagnostic.SA1002.severity = silent
+
+# SA1202: Elements should be ordered by access
+dotnet_diagnostic.SA1202.severity = none
