@@ -37,9 +37,9 @@ namespace AspNetSandbox.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            IEnumerable<Book> book = repository.GetBooks();
-            IEnumerable<ReadBookDto> bookDto = mapper.Map<IEnumerable<ReadBookDto>>(book);
-            return Ok(bookDto);
+            var bookList = repository.GetBooks();
+            var bookDtoList = mapper.Map<IEnumerable<ReadBookDto>>(bookList);
+            return Ok(bookDtoList);
         }
 
         /// <summary>Gets the specified book by id.</summary>
