@@ -76,7 +76,6 @@ namespace AspNetSandbox
             var convertedString = $"Server={server}; Port={port}; Database={database}; User Id={userId}; Password={password}; SslMode=Require; Trust Server Certificate=true";
 
             return convertedString;
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -106,6 +105,19 @@ namespace AspNetSandbox
 
             app.UseStaticFiles();
 
+            using (var serviceScope = app.ApplicationServices.CreateScope())
+            {
+                var applicationDbContext = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
+                if (applicationDbContext.Book.Any())
+                {
+                    Console.WriteLine("The books are there!");
+                }
+                else
+                {
+                    Console.WriteLine("We need the books!");
+                }
+            }
+
             app.UseRouting();
 
             app.UseAuthentication();
@@ -119,7 +131,8 @@ namespace AspNetSandbox
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
                 endpoints.MapHub<MessageHub>("/messagehub");
-        });
+            });
+            DataTools.SeedData(app);
         }
     }
 }
