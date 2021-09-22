@@ -16,7 +16,10 @@ namespace AspNetSandbox.Controllers
     [Route("[controller]")]
     public class CityCoordinatesController : ControllerBase
     {
-        /// <summary>Gets the coordinates for Tokyo.</summary>
+        /// <summary>
+        /// Gets the specified city.
+        /// </summary>
+        /// <param name="city">The city.</param>
         /// <returns>Tokyo coordinates.</returns>
         [HttpGet]
         [Route("/citycoordinates/{city}")]
@@ -44,7 +47,7 @@ namespace AspNetSandbox.Controllers
                 return new CityCoordinates
                     {
                         Longitude = Math.Round(cityLongitude, 4),
-                        Latitude = Math.Round(cityLatitude, 4)
+                        Latitude = Math.Round(cityLatitude, 4),
                     };
             }
         }

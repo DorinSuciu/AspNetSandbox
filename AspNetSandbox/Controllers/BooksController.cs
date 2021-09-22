@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetSandbox.Data;
+using AspNetSandbox.DTOs;
+using AspNetSandbox.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using AspNetSandbox.Data;
-using AspNetSandbox.Models;
 using Microsoft.AspNetCore.SignalR;
-using AspNetSandbox.DTOs;
-using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 namespace AspNetSandbox.Controllers
@@ -25,6 +25,12 @@ namespace AspNetSandbox.Controllers
         private readonly IHubContext<MessageHub> hubContext;
         private readonly IMapper mapper;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BooksController"/> class.
+        /// </summary>
+        /// <param name="repository">The repository.</param>
+        /// <param name="hubContext">The hub context.</param>
+        /// <param name="mapper">The mapper.</param>
         public BooksController(IBookRepository repository, IHubContext<MessageHub> hubContext, IMapper mapper)
         {
             this.repository = repository;

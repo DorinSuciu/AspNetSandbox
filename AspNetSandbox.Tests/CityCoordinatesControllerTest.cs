@@ -1,16 +1,22 @@
-﻿using AspNetSandbox.Controllers;
-using System;
+﻿using System;
 using System.IO;
+using AspNetSandbox.Controllers;
 using Xunit;
 
 namespace AspNetSandbox.Tests
 {
+    /// <summary>
+    /// Tests CityCoordinatesController.
+    /// </summary>
     public class CityCoordinatesControllerTest
     {
+        /// <summary>
+        /// Gets the city coordinates test.
+        /// </summary>
         [Fact]
         public void GetCityCoordinatesTest()
         {
-            //Asume
+            // Asume
             string content = LoadJsonFromResource();
             var controller = new CityCoordinatesController();
 
