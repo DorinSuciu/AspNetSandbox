@@ -3,68 +3,36 @@
 # SA1101: Prefix local calls with this
 dotnet_diagnostic.SA1101.severity = none
 
+# SA1200: Using directives should be placed correctly
+dotnet_diagnostic.SA1200.severity = none
+
 # SA1633: File should have header
 dotnet_diagnostic.SA1633.severity = none
 
-# IDE0005: Using directive is unnecessary.
-dotnet_diagnostic.IDE0005.severity = none
 
-# SA1200: Using directives should be placed correctly
-dotnet_diagnostic.SA1200.severity = none
+# CS1591: Missing XML comment for publicly visible type or member
+dotnet_diagnostic.CS1591.severity = none
+
+# SA1615: Element return value should be documented
+dotnet_diagnostic.SA1615.severity = none
 
 # SA1600: Elements should be documented
 dotnet_diagnostic.SA1600.severity = none
 
-# SA1005: Single line comments should begin with single space
-dotnet_diagnostic.SA1005.severity = none
-
-# SA1413: Use trailing comma in multi-line initializers
-dotnet_diagnostic.SA1413.severity = none
-
-# SA1208: System using directives should be placed before other using directives
-dotnet_diagnostic.SA1208.severity = none
-
-# SA1300: Element should begin with upper-case letter
-dotnet_diagnostic.SA1300.severity = none
+# SA1309: Field names should not begin with underscore
+dotnet_diagnostic.SA1309.severity = none
 
 # SA1310: Field names should not contain underscore
 dotnet_diagnostic.SA1310.severity = none
 
-# CS1591: Missing XML comment for publicly visible type or member
-dotnet_diagnostic.CS1591.severity = silent
-
-# SA1309: Field names should not begin with underscore
-dotnet_diagnostic.SA1309.severity = none
+# SA1601: Partial elements should be documented
+dotnet_diagnostic.SA1601.severity = none
 
 # IDE0052: Remove unread private members
 dotnet_diagnostic.IDE0052.severity = none
-
-# IDE0044: Add readonly modifier
-dotnet_diagnostic.IDE0044.severity = none
-
-# CS0414: The field 'BooksService.id' is assigned but its value is never used
-dotnet_diagnostic.CS0414.severity = none
-
-# SA1611: Element parameters should be documented
-dotnet_diagnostic.SA1611.severity = none
 
 # SA1201: Elements should appear in the correct order
 dotnet_diagnostic.SA1201.severity = none
 
 # SA0001: XML comment analysis disabled
 dotnet_diagnostic.SA0001.severity = none
-
-# SA1210: Using directives should be ordered alphabetically by namespace
-dotnet_diagnostic.SA1210.severity = none
-
-# SA1601: Partial elements should be documented
-dotnet_diagnostic.SA1601.severity = none
-
-# SA1615: Element return value should be documented
-dotnet_diagnostic.SA1615.severity = none
-
-# SA1002: Semicolons should be spaced correctly
-dotnet_diagnostic.SA1002.severity = silent
-
-# SA1202: Elements should be ordered by access
-dotnet_diagnostic.SA1202.severity = none

@@ -1,10 +1,10 @@
-﻿using AspNetSandbox.Models;
-using AspNetSandbox.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AspNetSandbox.Models;
+using AspNetSandbox.Services;
 using Xunit;
 
 namespace AspNetSandbox.Tests
@@ -16,10 +16,13 @@ namespace AspNetSandbox.Tests
     {
         private BooksInMemoryRepository booksService;
 
+        /// <summary>
+        /// Bookses the service add book test.
+        /// </summary>
         [Fact]
         public void BooksServiceAddBookTest()
         {
-            //Asume
+            // Asume
             BooksInMemoryRepository.ResetId();
             booksService = new BooksInMemoryRepository();
 
@@ -28,14 +31,14 @@ namespace AspNetSandbox.Tests
             {
                 Title = "Test Book Nr1",
                 Author = "Tester 1",
-                Language = "test 1"
+                Language = "test 1",
             });
             booksService.DeleteBook(2);
             booksService.AddBook(new Book
             {
                 Title = "Test Book Nr2",
                 Author = "Tester 2",
-                Language = "test 2"
+                Language = "test 2",
             });
 
             // Assert
@@ -44,10 +47,13 @@ namespace AspNetSandbox.Tests
             Assert.Equal("test 1", booksService.GetBookById(3).Language);
         }
 
+        /// <summary>
+        /// Bookses the service replace book test.
+        /// </summary>
         [Fact]
         public void BooksServiceReplaceBookTest()
         {
-            //Asume
+            // Asume
             BooksInMemoryRepository.ResetId();
             booksService = new BooksInMemoryRepository();
 
@@ -57,7 +63,7 @@ namespace AspNetSandbox.Tests
                 Id = 1,
                 Title = "Test Book Nr3",
                 Author = "Tester 3",
-                Language = "test 3"
+                Language = "test 3",
             });
 
             // Assert

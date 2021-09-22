@@ -26,6 +26,19 @@ namespace AspNetSandbox
             Configuration = configuration;
         }
 
+        public static string ConvertConnectionString(string connectionString)
+        {
+            Uri uri = new (connectionString);
+            string server = uri.Host;
+            int port = uri.Port;
+            string database = uri.AbsolutePath.TrimStart('/');
+            string userId = uri.UserInfo.Split(":")[0];
+            string password = uri.UserInfo.Split(":")[1];
+            var convertedString = $"Server={server}; Port={port}; Database={database}; User Id={userId}; Password={password}; SslMode=Require; Trust Server Certificate=true";
+
+            return convertedString;
+        }
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -54,30 +67,6 @@ namespace AspNetSandbox
             services.AddScoped<IBookRepository, DbBooksRepository>();
         }
 
-        private string GetConnectionString()
-        {
-            var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
-            if (connectionString != null)
-            {
-                return ConvertConnectionString(connectionString);
-            }
-
-            return Configuration.GetConnectionString("DefaultConnection");
-        }
-
-        public static string ConvertConnectionString(string connectionString)
-        {
-            Uri uri = new (connectionString);
-            string server = uri.Host;
-            int port = uri.Port;
-            string database = uri.AbsolutePath.TrimStart('/');
-            string userId = uri.UserInfo.Split(":")[0];
-            string password = uri.UserInfo.Split(":")[1];
-            var convertedString = $"Server={server}; Port={port}; Database={database}; User Id={userId}; Password={password}; SslMode=Require; Trust Server Certificate=true";
-
-            return convertedString;
-        }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -92,7 +81,7 @@ namespace AspNetSandbox
             {
                 app.UseExceptionHandler("/Home/Error");
 
-                //The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -104,19 +93,6 @@ namespace AspNetSandbox
             app.UseDefaultFiles(defaultFileOptions);
 
             app.UseStaticFiles();
-
-            using (var serviceScope = app.ApplicationServices.CreateScope())
-            {
-                var applicationDbContext = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
-                if (applicationDbContext.Book.Any())
-                {
-                    Console.WriteLine("The books are there!");
-                }
-                else
-                {
-                    Console.WriteLine("We need the books!");
-                }
-            }
 
             app.UseRouting();
 
@@ -132,7 +108,18 @@ namespace AspNetSandbox
                 endpoints.MapControllers();
                 endpoints.MapHub<MessageHub>("/messagehub");
             });
-            DataTools.SeedData(app);
+            app.SeedData();
+        }
+
+        private string GetConnectionString()
+        {
+            var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
+            if (connectionString != null)
+            {
+                return ConvertConnectionString(connectionString);
+            }
+
+            return Configuration.GetConnectionString("DefaultConnection");
         }
     }
 }

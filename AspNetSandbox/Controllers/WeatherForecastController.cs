@@ -53,8 +53,8 @@ namespace AspNetSandbox.Controllers
                 return new WeatherForecast
                 {
                     Date = DateTimeOffset.FromUnixTimeSeconds(unixDateTime).Date,
-                    TemperatureC = getCelsiusTemperatureFromDailyWeather(jsonDailyForecast),
-                    Summary = weatherSummary
+                    TemperatureC = GetCelsiusTemperatureFromDailyWeather(jsonDailyForecast),
+                    Summary = weatherSummary,
                 };
             })
             .ToArray();
@@ -63,7 +63,7 @@ namespace AspNetSandbox.Controllers
         /// <summary>Transform kelvin temperature in celsius.</summary>
         /// <param name="jsonDailyForecast">The json daily forecast.</param>
         /// <returns>celsius temperature.</returns>
-        private static int getCelsiusTemperatureFromDailyWeather(JToken jsonDailyForecast)
+        private static int GetCelsiusTemperatureFromDailyWeather(JToken jsonDailyForecast)
         {
             return (int)Math.Round(jsonDailyForecast["temp"].Value<float>("day") - KELVIN_CONST);
         }

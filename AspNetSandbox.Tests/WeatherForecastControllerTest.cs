@@ -1,16 +1,22 @@
-using AspNetSandbox.Controllers;
 using System;
 using System.IO;
+using AspNetSandbox.Controllers;
 using Xunit;
 
 namespace AspNetSandbox.Tests
 {
+    /// <summary>
+    /// Tests WeatherForecastController.
+    /// </summary>
     public class WeatherForecastControllerTest
     {
+        /// <summary>
+        /// Converts the response to weather forecast test.
+        /// </summary>
         [Fact]
         public void ConvertResponseToWeatherForecastTest()
         {
-            //Asume
+            // Asume
             string content = LoadJsonFromResource();
             var controller = new WeatherForecastController();
 
@@ -24,10 +30,13 @@ namespace AspNetSandbox.Tests
             Assert.Equal(new DateTime(2021, 9, 3), weatherForecastForTomorrow.Date);
         }
 
+        /// <summary>
+        /// Converts the response to weather forecast after tomorrow test.
+        /// </summary>
         [Fact]
         public void ConvertResponseToWeatherForecastAfterTomorrowTest()
         {
-            //Asume
+            // Asume
             string content = LoadJsonFromResource();
             var controller = new WeatherForecastController();
 
