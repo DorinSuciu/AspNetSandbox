@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DockerSandbox", "DockerSand
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{AFF1AC3F-B7C3-428E-8E59-D623BFD2109D}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetSandbox.Tests", "AspNetSandbox.Tests\AspNetSandbox.Tests.csproj", "{E3899EDE-6545-4ED9-8CAB-43BA9B0F5216}"
