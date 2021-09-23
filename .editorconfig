@@ -39,3 +39,6 @@ dotnet_diagnostic.SA0001.severity = none
 
 # SA1118: Parameter should not span multiple lines
 dotnet_diagnostic.SA1118.severity = none
+
+# CS0414: The field 'BooksInMemoryRepository.id' is assigned but its value is never used
+dotnet_diagnostic.CS0414.severity = none
