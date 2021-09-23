@@ -10,6 +10,10 @@ deployed | https://asp--net--sandbox.herokuapp.com
 
 Navigate to [AspNetSandbox](AspNetSandbox) directory
 
+### Application screenshot
+
+![alt text](file:///C:/Projects/Backend/AspNetSandbox/app_ss.PNG)
+
 ### Build in container
 ```
 docker build -t web_dorin .
