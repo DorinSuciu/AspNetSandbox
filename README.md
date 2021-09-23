@@ -12,7 +12,7 @@ Navigate to [AspNetSandbox](AspNetSandbox) directory
 
 ### Application screenshot
 
-![alt text](file:///C:/Projects/Backend/AspNetSandbox/app_ss.PNG)
+![alt text](https://github.com/DorinSuciu/AspNetSandbox/blob/master/app_ss.PNG)
 
 ### Build in container
 ```
